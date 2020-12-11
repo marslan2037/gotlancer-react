@@ -1,21 +1,21 @@
-import React from "react";
-import Button from '@material-ui/core/Button';
+import React,{ useEffect, useState }from "react";
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 export default class Header extends React.Component {
     constructor(props) {
         super(props);
 
-        console.log(props)
 
         this.state = {
             search_dropdown: false,
             setting_dropdown: false,
         };
+        const [anchorEl,setAnchorEl] = usestate(false);
 
     }
 
     ToggleDropdown = (name, value) => {
+        console.log(name)
         if(name === 'search_dropdown') {
             this.setState({
                 search_dropdown: value
@@ -162,13 +162,13 @@ export default class Header extends React.Component {
                                 </div>
                                 
                                 <div className="user-detail-dropdown dropdown">
-                                    <div className="user-detail" data-toggle="dropdown">
+                                    <div className="user-detail" aria-controls="simple-menu" aria-haspopup="true" onClick={() => this.ToggleDropdown('search_dropdown', true)}>
                                         <p className="name">Apurba Das</p>
                                         <span className="user-type">Buyer</span>
                                         <span className="short-name">SK</span>
                                     </div>
 
-                                    <div className="dropdown-menu">
+                                    <div className="dropdown-menu" style={{display:"none"}}>
                                         <ul>
                                             <li><a href=""><img src="images/settings-settings-icon.svg" alt="" /> Settings</a></li>
                                             <li><a href=""><img src="images/settings-user-profile-icon.svg" alt="" /> My Profile</a></li>
@@ -182,13 +182,26 @@ export default class Header extends React.Component {
                                             <button>Away</button>
                                         </div>
                                     </div>
+                                    <Menu
+                                        id="simple-menu"
+                                        open={this.state.search_dropdown}
+                                        onClose={() => this.ToggleDropdown('search_dropdown', false)}
+                                    >
+                                        <MenuItem onClick={() => this.ToggleDropdown('search_dropdown', false)}>Profile</MenuItem>
+                                        <MenuItem>settings</MenuItem>
+                                        <MenuItem>my Profile</MenuItem>
+                                        <MenuItem>Membership</MenuItem>
+                                        <MenuItem>Buy Bid Credit</MenuItem>
+                                        <MenuItem>Logout</MenuItem>
+                                    </Menu>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </header>
             
-                <Button aria-controls="simple-menu" aria-haspopup="true"
+                {/* <Button aria-controls="simple-menu" aria-haspopup="true"
                     onClick={() => this.ToggleDropdown('search_dropdown', true)}
                 >
                     Open Menu
@@ -201,7 +214,7 @@ export default class Header extends React.Component {
                     <MenuItem onClick={() => this.ToggleDropdown('search_dropdown', false)}>Profile</MenuItem>
                     <MenuItem>My account</MenuItem>
                     <MenuItem>Logout</MenuItem>
-                </Menu>
+                </Menu> */}
             </>
         )
     }
