@@ -1,4 +1,4 @@
-import React,{ useEffect, useState }from "react";
+import React from "react";
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 export default class Header extends React.Component {
@@ -10,25 +10,27 @@ export default class Header extends React.Component {
             search_dropdown: false,
             setting_dropdown: false,
         };
-        const [anchorEl,setAnchorEl] = usestate(false);
 
     }
 
-    ToggleDropdown = (name, value) => {
+    ToggleDropdown = (name) => {
         console.log(name)
         if(name === 'search_dropdown') {
             this.setState({
-                search_dropdown: value
+                search_dropdown: !this.state.search_dropdown,
+                setting_dropdown: false,
             })
-        } else if(name === 'settings_dropdown') {
+        } else if(name === 'setting_dropdown') {
             this.setState({
-                setting_dropdown: value
+                search_dropdown: false,
+                setting_dropdown: !this.state.setting_dropdown
             })
         }
     }
-    
 
     render() {
+        const settings_dropdown = this.state.setting_dropdown;
+
         return(
             <>
                 <header className="fixed-top">
@@ -106,29 +108,39 @@ export default class Header extends React.Component {
                                 {/* MOBILE MENU BUTTON END */}
 
                                 <div className="search-bar dropdown">
-                                    <div data-toggle="dropdown">
+                                    <div data-toggle="dropdown" onClick={() => this.ToggleDropdown('search_dropdown')}>
                                         <span><img src="images/search-icon.svg" alt="" /></span>
                                         <input type="search" placeholder="Search"/>
                                         <span className="arrow"><img src="images/search-arrow-down.svg" alt="" /></span>
                                     </div>
 
-                                    <div id="search-box-wrapper" className="dropdown-menu search-dropdown">
-                                        <div className="dropdown-header">
-                                            Buyers can
+                                    {
+                                        this.state.search_dropdown
+                                        ?
+                                        <div 
+                                            id="search-box-wrapper" 
+                                            className="dropdown-menu search-dropdown"
+                                            style={{position: "absolute", top: "40px", backgroundColor: "#fff"}}
+                                        >
+                                            <div className="dropdown-header">
+                                                Buyers can
+                                            </div>
+                                            <div className="search-dropdown-item offers">
+                                                <a href="https://www.google.com/">Search <span className="standout">offers</span> <span className="helper">to buy now</span></a>
+                                            </div>
+                                            <div className="search-dropdown-item freelancers">
+                                                <a href="https://www.google.com/">Search <span className="standout">freelancers</span> <span className="helper">to request a proposal</span></a>
+                                            </div>
+                                            <div className="dropdown-header">
+                                                Freelancers can
+                                            </div>
+                                            <div className="search-dropdown-item projects">
+                                                <a href="https://www.google.com/">Search <span className="standout">projects</span> <span className="helper">to quote on</span></a>
+                                            </div>
                                         </div>
-                                        <div className="search-dropdown-item offers">
-                                            <a href="https://www.google.com/">Search <span className="standout">offers</span> <span className="helper">to buy now</span></a>
-                                        </div>
-                                        <div className="search-dropdown-item freelancers">
-                                            <a href="https://www.google.com/">Search <span className="standout">freelancers</span> <span className="helper">to request a proposal</span></a>
-                                        </div>
-                                        <div className="dropdown-header">
-                                            Freelancers can
-                                        </div>
-                                        <div className="search-dropdown-item projects">
-                                            <a href="https://www.google.com/">Search <span className="standout">projects</span> <span className="helper">to quote on</span></a>
-                                        </div>
-                                    </div>
+                                        :
+                                        <></>
+                                    }
                                 </div>
 
                                 {/* EMPTY GRID ITEMS */}
@@ -162,39 +174,32 @@ export default class Header extends React.Component {
                                 </div>
                                 
                                 <div className="user-detail-dropdown dropdown">
-                                    <div className="user-detail" aria-controls="simple-menu" aria-haspopup="true" onClick={() => this.ToggleDropdown('search_dropdown', true)}>
+                                    <div className="user-detail" onClick={() => this.ToggleDropdown('setting_dropdown')}>
                                         <p className="name">Apurba Das</p>
                                         <span className="user-type">Buyer</span>
                                         <span className="short-name">SK</span>
                                     </div>
 
-                                    <div className="dropdown-menu" style={{display:"none"}}>
-                                        <ul>
-                                            <li><a href=""><img src="images/settings-settings-icon.svg" alt="" /> Settings</a></li>
-                                            <li><a href=""><img src="images/settings-user-profile-icon.svg" alt="" /> My Profile</a></li>
-                                            <li><a href=""><img src="images/membership-icon.svg" alt="" /> Membership</a></li>
-                                            <li><a href=""><img src="images/cart-icon.svg" alt="" /> Buy Bid Credit</a></li>
-                                            <li><a href=""><img src="images/settings-logout-icon.svg" alt="" /> Logout</a></li>
-                                        </ul>
+                                    {
+                                        this.state.setting_dropdown 
+                                        ?
+                                        <div className="dropdown-menu" style={{position: "absolute", top: "40px", backgroundColor: "#fff"}}>
+                                            <ul>
+                                                <li><a href=""><img src="images/settings-settings-icon.svg" alt="" /> Settings</a></li>
+                                                <li><a href=""><img src="images/settings-user-profile-icon.svg" alt="" /> My Profile</a></li>
+                                                <li><a href=""><img src="images/membership-icon.svg" alt="" /> Membership</a></li>
+                                                <li><a href=""><img src="images/cart-icon.svg" alt="" /> Buy Bid Credit</a></li>
+                                                <li><a href=""><img src="images/settings-logout-icon.svg" alt="" /> Logout</a></li>
+                                            </ul>
 
-                                        <div className="user-status">
-                                            <button className="active-btn">Online <img src="images/check-icon.svg" alt="" /></button>
-                                            <button>Away</button>
+                                            <div className="user-status">
+                                                <button className="active-btn">Online <img src="images/check-icon.svg" alt="" /></button>
+                                                <button>Away</button>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <Menu
-                                        id="simple-menu"
-                                        open={this.state.search_dropdown}
-                                        onClose={() => this.ToggleDropdown('search_dropdown', false)}
-                                    >
-                                        <MenuItem onClick={() => this.ToggleDropdown('search_dropdown', false)}>Profile</MenuItem>
-                                        <MenuItem>settings</MenuItem>
-                                        <MenuItem>my Profile</MenuItem>
-                                        <MenuItem>Membership</MenuItem>
-                                        <MenuItem>Buy Bid Credit</MenuItem>
-                                        <MenuItem>Logout</MenuItem>
-                                    </Menu>
-
+                                        :
+                                        <></>
+                                    }
                                 </div>
                             </div>
                         </div>
