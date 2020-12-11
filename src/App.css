@@ -976,7 +976,7 @@ a:hover {
   }
 }
 .main-container header .user-detail-dropdown .dropdown-menu {
-  top: 8px;
+  top: 8px !important;
   left: initial !important;
   right: 0 !important;
   width: 202px !important;

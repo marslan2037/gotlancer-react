@@ -119,8 +119,8 @@ export default class Header extends React.Component {
                                         ?
                                         <div 
                                             id="search-box-wrapper" 
-                                            className="dropdown-menu search-dropdown"
-                                            style={{position: "absolute", top: "40px", backgroundColor: "#fff"}}
+                                            className="dropdown-menu search-dropdown "
+                                            
                                         >
                                             <div className="dropdown-header">
                                                 Buyers can
@@ -183,7 +183,7 @@ export default class Header extends React.Component {
                                     {
                                         this.state.setting_dropdown 
                                         ?
-                                        <div className="dropdown-menu" style={{position: "absolute", top: "40px", backgroundColor: "#fff"}}>
+                                        <div className="dropdown-menu">
                                             <ul>
                                                 <li><a href=""><img src="images/settings-settings-icon.svg" alt="" /> Settings</a></li>
                                                 <li><a href=""><img src="images/settings-user-profile-icon.svg" alt="" /> My Profile</a></li>
