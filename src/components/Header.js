@@ -3,6 +3,11 @@ import checkIcon from "../assets/images/check-icon.svg";
 import bellIcon from "../assets/images/bell-icon.svg";
 import searchArrowDown from "../assets/images/search-arrow-down.svg";
 import searchIcon from "../assets/images/search-icon.svg";
+import settingsSettingIcon from "../assets/images/settings-settings-icon.svg";
+import userProfileIcon from "../assets/images/settings-user-profile-icon.svg";
+import membershipIcon from "../assets/images/membership-icon.svg";
+import cartIcon from "../assets/images/cart-icon.svg";
+import settingsLogoutIcon from "../assets/images/settings-logout-icon.svg";
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -175,11 +180,11 @@ export default class Header extends React.Component {
 
                                     <div className="dropdown-menu">
                                         <ul>
-                                            <li><a href=""><img src="images/settings-settings-icon.svg" alt="" /> Settings</a></li>
-                                            <li><a href=""><img src="images/settings-user-profile-icon.svg" alt="" /> My Profile</a></li>
-                                            <li><a href=""><img src="images/membership-icon.svg" alt="" /> Membership</a></li>
-                                            <li><a href=""><img src="images/cart-icon.svg" alt="" /> Buy Bid Credit</a></li>
-                                            <li><a href=""><img src="images/settings-logout-icon.svg" alt="" /> Logout</a></li>
+                                            <li><a href=""><img src={settingsSettingIcon} alt="" /> Settings</a></li>
+                                            <li><a href=""><img src={userProfileIcon} alt="" /> My Profile</a></li>
+                                            <li><a href=""><img src={membershipIcon} alt="" /> Membership</a></li>
+                                            <li><a href=""><img src={cartIcon} alt="" /> Buy Bid Credit</a></li>
+                                            <li><a href=""><img src={settingsLogoutIcon} alt="" /> Logout</a></li>
                                         </ul>
 
                                         <div className="user-status">
