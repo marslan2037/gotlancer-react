@@ -1,8 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
+import SocialIcons from "./SocialIcons";
 
 export default class Footer extends React.Component {
-    constructor(props){
-    super(props);}
+    constructor(props) {
+        super(props);
+    }
 
     render(){
         return(
@@ -83,12 +85,7 @@ export default class Footer extends React.Component {
                             </div>
                             <div className="col-lg-6 d-flex justify-content-center justify-content-lg-end align-items-center">
                                 <span>Follow us:</span>
-                                <div className="footer-social-icons">
-                                    <a href="#"><i className="fa fa-facebook-f"></i></a>
-                                    <a href="#"><i className="fa fa-twitter"></i></a>
-                                    <a href="#"><i className="fa fa-linkedin"></i></a>
-                                    <a href="#"><i className="fa fa-youtube"></i></a>
-                                </div>
+                                <SocialIcons />
                             </div>
                         </div>
                     </div>
