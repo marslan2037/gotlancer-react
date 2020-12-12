@@ -3770,6 +3770,7 @@ a:hover {
   font-weight: 500;
   text-transform: uppercase;
   color: #515154;
+  margin: 0 0 15px;
 }
 @media (min-width: 320px) and (max-width: 767px) {
   .main-container footer h4 {

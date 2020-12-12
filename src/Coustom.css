@@ -1,5 +1,8 @@
-.main-container header .user-detail-dropdown .dropdown-menu , .main-container header .search-bar .dropdown-menu {
+h2, ul {
+    margin: 0;
+}
+/* .main-container header .user-detail-dropdown .dropdown-menu , .main-container header .search-bar .dropdown-menu {
     position: absolute;
     top: 40px !important ;
     background-color: #ffff;
-}
+} */

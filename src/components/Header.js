@@ -1,6 +1,9 @@
 import React from "react";
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import checkIcon from "../assets/images/check-icon.svg";
+import bellIcon from "../assets/images/bell-icon.svg";
+import searchArrowDown from "../assets/images/search-arrow-down.svg";
+import searchIcon from "../assets/images/search-icon.svg";
+
 export default class Header extends React.Component {
     constructor(props) {
         super(props);
@@ -92,7 +95,7 @@ export default class Header extends React.Component {
                                         <li className="mobile-visible"><a href="#">Logout</a></li>
                                         <li className="mobile-visible">
                                             <div className="user-status">
-                                                <button className="active-btn">Online <img src="images/check-icon.svg" alt="" /></button>
+                                                <button className="active-btn">Online <img src={checkIcon} alt="" /></button>
                                                 <button>Away</button>
                                             </div>
                                         </li>
@@ -108,39 +111,29 @@ export default class Header extends React.Component {
                                 {/* MOBILE MENU BUTTON END */}
 
                                 <div className="search-bar dropdown">
-                                    <div data-toggle="dropdown" onClick={() => this.ToggleDropdown('search_dropdown')}>
-                                        <span><img src="images/search-icon.svg" alt="" /></span>
-                                        <input type="search" placeholder="Search"/>
-                                        <span className="arrow"><img src="images/search-arrow-down.svg" alt="" /></span>
+                                    <div data-toggle="dropdown">
+                                        <span><img src={searchIcon} alt="" /></span>
+                                        <input type="search" placeholder="Search" />
+                                        <span className="arrow"><img src={searchArrowDown} alt="" /></span>
                                     </div>
 
-                                    {
-                                        this.state.search_dropdown
-                                        ?
-                                        <div 
-                                            id="search-box-wrapper" 
-                                            className="dropdown-menu search-dropdown "
-                                            
-                                        >
-                                            <div className="dropdown-header">
-                                                Buyers can
-                                            </div>
-                                            <div className="search-dropdown-item offers">
-                                                <a href="https://www.google.com/">Search <span className="standout">offers</span> <span className="helper">to buy now</span></a>
-                                            </div>
-                                            <div className="search-dropdown-item freelancers">
-                                                <a href="https://www.google.com/">Search <span className="standout">freelancers</span> <span className="helper">to request a proposal</span></a>
-                                            </div>
-                                            <div className="dropdown-header">
-                                                Freelancers can
-                                            </div>
-                                            <div className="search-dropdown-item projects">
-                                                <a href="https://www.google.com/">Search <span className="standout">projects</span> <span className="helper">to quote on</span></a>
-                                            </div>
+                                    <div id="search-box-wrapper" className="dropdown-menu search-dropdown">
+                                        <div className="dropdown-header">
+                                            Buyers can
                                         </div>
-                                        :
-                                        <></>
-                                    }
+                                        <div className="search-dropdown-item offers">
+                                            <a href="https://www.google.com/">Search <span className="standout">offers</span> <span className="helper">to buy now</span></a>
+                                        </div>
+                                        <div className="search-dropdown-item freelancers">
+                                            <a href="https://www.google.com/">Search <span className="standout">freelancers</span> <span className="helper">to request a proposal</span></a>
+                                        </div>
+                                        <div className="dropdown-header">
+                                            Freelancers can
+                                        </div>
+                                        <div className="search-dropdown-item projects">
+                                            <a href="https://www.google.com/">Search <span className="standout">projects</span> <span className="helper">to quote on</span></a>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 {/* EMPTY GRID ITEMS */}
@@ -166,7 +159,7 @@ export default class Header extends React.Component {
                                     <ul>
                                         <li>
                                             <a href="#">
-                                                <img src="images/bell-icon.svg" alt="" /> 
+                                                <img src={bellIcon} alt="" /> 
                                                 <span className="message-count"><span>5</span></span>
                                             </a>
                                         </li>
@@ -174,32 +167,26 @@ export default class Header extends React.Component {
                                 </div>
                                 
                                 <div className="user-detail-dropdown dropdown">
-                                    <div className="user-detail" onClick={() => this.ToggleDropdown('setting_dropdown')}>
+                                    <div className="user-detail" data-toggle="dropdown">
                                         <p className="name">Apurba Das</p>
                                         <span className="user-type">Buyer</span>
                                         <span className="short-name">SK</span>
                                     </div>
 
-                                    {
-                                        this.state.setting_dropdown 
-                                        ?
-                                        <div className="dropdown-menu">
-                                            <ul>
-                                                <li><a href=""><img src="images/settings-settings-icon.svg" alt="" /> Settings</a></li>
-                                                <li><a href=""><img src="images/settings-user-profile-icon.svg" alt="" /> My Profile</a></li>
-                                                <li><a href=""><img src="images/membership-icon.svg" alt="" /> Membership</a></li>
-                                                <li><a href=""><img src="images/cart-icon.svg" alt="" /> Buy Bid Credit</a></li>
-                                                <li><a href=""><img src="images/settings-logout-icon.svg" alt="" /> Logout</a></li>
-                                            </ul>
+                                    <div className="dropdown-menu">
+                                        <ul>
+                                            <li><a href=""><img src="images/settings-settings-icon.svg" alt="" /> Settings</a></li>
+                                            <li><a href=""><img src="images/settings-user-profile-icon.svg" alt="" /> My Profile</a></li>
+                                            <li><a href=""><img src="images/membership-icon.svg" alt="" /> Membership</a></li>
+                                            <li><a href=""><img src="images/cart-icon.svg" alt="" /> Buy Bid Credit</a></li>
+                                            <li><a href=""><img src="images/settings-logout-icon.svg" alt="" /> Logout</a></li>
+                                        </ul>
 
-                                            <div className="user-status">
-                                                <button className="active-btn">Online <img src="images/check-icon.svg" alt="" /></button>
-                                                <button>Away</button>
-                                            </div>
+                                        <div className="user-status">
+                                            <button className="active-btn">Online <img src={checkIcon} alt="" /></button>
+                                            <button>Away</button>
                                         </div>
-                                        :
-                                        <></>
-                                    }
+                                    </div>
                                 </div>
                             </div>
                         </div>
