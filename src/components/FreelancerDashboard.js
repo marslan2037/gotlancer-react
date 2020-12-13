@@ -1,8 +1,11 @@
 import React from "react";
+import Membership from "./Membership";
+import BidCredit from "./BidCredit";
+import FreelancerDashboardRight from "./FreelancerDashboardRight";
+import MiddleSectionSearchbar from "./MiddleSectionSearchbar";
+
 import profileIcon from "../assets/images/profile-pic.svg";
 import topRatedIcon from "../assets/images/top-rated-star.svg";
-import logoIcon from "../assets/images/logo.svg";
-import mainSearchBarIcon from "../assets/images/main-search-bar-icon.svg";
 import clockIcon from "../assets/images/clock-icon.svg";
 import dollarIcon from "../assets/images/dollar-icon.svg";
 import startIcon from "../assets/images/start-icon.svg";
@@ -57,38 +60,18 @@ export default class FreelancerDashboard extends React.Component {
                                 </div>
                             </div>
                             
-                            <div className="single-content-box mb-4">
-                                <div className="box-heading pl-3 pr-3">
-                                    <h2>Membership</h2>
-                                </div>
+                           {/* Membership */}
+                            <Membership />
 
-                                <div className="box-detail pl-3 pr-3 pt-2 pb-3">
-                                    <p className="mb-4">Current membership</p>
-                                    <p className="have-grid column-2 mb-3"><img src={logoIcon} alt="" /> <span className="plan-name">Basic</span></p>
-                                    <button className="custom-button">Upgrade membership</button>
-                                </div>
-                            </div>
+                            {/* Bid Credit */}
+                            <BidCredit />
 
-                            <div className="single-content-box mb-4">
-                                <div className="box-heading pl-3 pr-3">
-                                    <h2>Bid Credit</h2>
-                                </div>
-
-                                <div className="box-detail pl-3 pr-3 pt-2 pb-3">
-                                    <p className="mb-3">Available Bids</p>
-
-                                    <p className="mb-3 font-weight-bold">76</p>
-
-                                    <button className="custom-button">Buy Proposal Credit</button>
-                                </div>
-                            </div>
                         </div>
 
                         <div className="middle-section">
-                            <div className="search-bar mb-4">
-                                <input type="search" placeholder="Search for project" />
-                                <img src={mainSearchBarIcon} alt="" />
-                            </div>
+
+                            {/* Middle-section Searchbar */}
+                            <MiddleSectionSearchbar />   
 
                             <p className="job-count-result mb-3"><span>45000</span> Jobs found</p>
 
@@ -355,103 +338,8 @@ export default class FreelancerDashboard extends React.Component {
 
                             <button className="custom-button load-more-jobs">Load More</button>
                         </div>
-                        
-                        <div className="right-section">
-                            <div className="filter-section">
-                                <p className="mb-3 filter-heading font-weight-semi-bold">Select category</p>
-                                <ul>
-                                    <li className="mb-3">
-                                        <label className="have-custom-checkbox">
-                                            <input type="checkbox" />
-                                            <span className="check-box"><i className="fa fa-check"></i></span> 
-                                            All
-                                        </label>
-                                    </li>
-                                    <li className="mb-3">
-                                        <label className="have-custom-checkbox">
-                                            <input type="checkbox" />
-                                            <span className="check-box"><i className="fa fa-check"></i></span> 
-                                            Website Development
-                                        </label>
-                                    </li>
-                                    <li className="mb-3">
-                                        <label className="have-custom-checkbox">
-                                            <input type="checkbox" />
-                                            <span className="check-box"><i className="fa fa-check"></i></span> 
-                                            Graphic Design
-                                        </label>
-                                    </li>
-                                    <li className="mb-3">
-                                        <label className="have-custom-checkbox">
-                                            <input type="checkbox" />
-                                            <span className="check-box"><i className="fa fa-check"></i></span> 
-                                            Digital Marketing
-                                        </label>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div className="filter-section">
-                                <p className="mb-3 filter-heading font-weight-semi-bold">Select Sub-category</p>
-                                <ul>
-                                    <li className="mb-3">
-                                        <label className="have-custom-checkbox">
-                                            <input type="checkbox" />
-                                            <span className="check-box"><i className="fa fa-check"></i></span> 
-                                            All
-                                        </label>
-                                    </li>
-                                    <li className="mb-3">
-                                        <label className="have-custom-checkbox">
-                                            <input type="checkbox" />
-                                            <span className="check-box"><i className="fa fa-check"></i></span> 
-                                            Website Development
-                                        </label>
-                                    </li>
-                                    <li className="mb-3">
-                                        <label className="have-custom-checkbox">
-                                            <input type="checkbox" />
-                                            <span className="check-box"><i className="fa fa-check"></i></span> 
-                                            Graphic Design
-                                        </label>
-                                    </li>
-                                    <li className="mb-3">
-                                        <label className="have-custom-checkbox">
-                                            <input type="checkbox" />
-                                            <span className="check-box"><i className="fa fa-check"></i></span> 
-                                            Digital Marketing
-                                        </label>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div className="filter-section">
-                                <p className="mb-3 filter-heading font-weight-semi-bold">Project Type</p>
-                                <ul>
-                                    <li className="mb-3">
-                                        <label className="have-custom-checkbox">
-                                            <input type="checkbox" />
-                                            <span className="check-box"><i className="fa fa-check"></i></span> 
-                                            Any
-                                        </label>
-                                    </li>
-                                    <li className="mb-3">
-                                        <label className="have-custom-checkbox">
-                                            <input type="checkbox" />
-                                            <span className="check-box"><i className="fa fa-check"></i></span> 
-                                            Fixed Price
-                                        </label>
-                                    </li>
-                                    <li className="mb-3">
-                                        <label className="have-custom-checkbox">
-                                            <input type="checkbox" />
-                                            <span className="check-box"><i className="fa fa-check"></i></span> 
-                                            Hourly
-                                        </label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        {/* Right Section */}
+                        <FreelancerDashboardRight />
                     </div>
                 </div>
             </>

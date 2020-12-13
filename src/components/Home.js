@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import BrowseOffer from "./BrowseOffer";
+import BrowseOffers from "./BrowseOffers";
 import BuyerDashboard from "./BuyerDashboard";
 import FreelancerDashboard from "./FreelancerDashboard";
 
@@ -12,8 +12,7 @@ export default class Home extends React.Component {
             <>
                 <div className="main-container">
                     <Header />
-                    <FreelancerDashboard/>
-                    {/* <BuyerDashboard/> */}
+                    <BrowseOffers />
                     <Footer />
                 </div>
             </>
