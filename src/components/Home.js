@@ -15,9 +15,9 @@ export default class Home extends React.Component {
                     <Header />
                     <Router>
                         <Switch>
-                            <Route path='/browse-offers' component={BrowseOffers} />
-                            <Route path='/buyer-dashboard' component={BuyerDashboard} />
-                            <Route path='/freelancer-dashboard' component={FreelancerDashboard} />
+                            <Route exact path='/browse-offers' component={BrowseOffers} />
+                            <Route exact path='/buyer-dashboard' component={BuyerDashboard} />
+                            <Route exact path='/freelancer-dashboard' component={FreelancerDashboard} />
                         </Switch>
                     </Router>
                     <Footer />

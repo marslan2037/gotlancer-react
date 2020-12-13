@@ -1,6 +1,6 @@
 import React from "react";
 import HeaderSearchBar from "./HeaderSearchBar";
-
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import checkIcon from "../assets/images/check-icon.svg";
 import bellIcon from "../assets/images/bell-icon.svg";
 import settingsSettingIcon from "../assets/images/settings-settings-icon.svg";
@@ -53,7 +53,7 @@ export default class Header extends React.Component {
                                      {/* MOBILE MENU BUTTON START  */}
                                     <span className="mobile-menu-close-button"><i className="fa fa-times"></i></span>
                                     {/* MOBILE MENU BUTTON END */}
-                                    <ul className="main-menu">
+                                    {/* <ul className="main-menu">
                                         <li className="mobile-visible">
                                             <div className="user-detail-dropdown">
                                                 <div className="user-detail">
@@ -104,7 +104,14 @@ export default class Header extends React.Component {
                                                 <button>Away</button>
                                             </div>
                                         </li>
-                                    </ul>
+                                    </ul> */}
+                                    <Router>
+                                        <ul className="main-menu">
+                                            <li><Link to={'/browse-offers'} className="nav-link"> BrowseOffers</Link></li>
+                                            <li><Link to={'/freelancer-dashboard'} className="nav-link"> FreelancerDashboard </Link></li>
+                                            <li><Link to={'/buyer-dashboard'} className="nav-link"> BuyerDashboard</Link></li>
+                                        </ul>
+                                    </Router>
                                 </div>
 
                                 {/* MOBILE MENU BUTTON START */}
