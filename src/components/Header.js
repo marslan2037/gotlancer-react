@@ -1,6 +1,7 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link, NavLink } from 'react-router-dom';
+// import { NavLink } from "react-router-dom";
 import HeaderSearchBar from "./HeaderSearchBar";
-import { BrowserRouter as Router, Link } from 'react-router-dom';
 import checkIcon from "../assets/images/check-icon.svg";
 import bellIcon from "../assets/images/bell-icon.svg";
 import settingsSettingIcon from "../assets/images/settings-settings-icon.svg";
@@ -105,13 +106,11 @@ export default class Header extends React.Component {
                                             </div>
                                         </li>
                                     </ul> */}
-                                    <Router>
                                         <ul className="main-menu">
-                                            <li><Link to={'/browse-offers'} className="nav-link"> BrowseOffers</Link></li>
-                                            <li><Link to={'/freelancer-dashboard'} className="nav-link"> FreelancerDashboard </Link></li>
-                                            <li><Link to={'/buyer-dashboard'} className="nav-link"> BuyerDashboard</Link></li>
+                                            <li><Link to="/browse-offers">Browse</Link></li>
+                                            <li><Link to="/buyer-dashboard">BuyerDashboard</Link></li>
+                                            <li><Link to="/freelancer-dashboard">FreelancerDashboard</Link></li>
                                         </ul>
-                                    </Router>
                                 </div>
 
                                 {/* MOBILE MENU BUTTON START */}
