@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import BrowseOffers from "./components/BrowseOffers";
 import BuyerDashboard from "./components/BuyerDashboard";
 import FreelancerDashboard from "./components/FreelancerDashboard";
+import BasicTable from "./components/MaterialTest";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                         <Route path='/browse-offers' component={BrowseOffers} />
                         <Route path='/buyer-dashboard' component={BuyerDashboard} />
                         <Route path='/freelancer-dashboard' component={FreelancerDashboard} />
+                        <Route path='/basic-table' component={BasicTable} />
                     </Switch>
                     
                     <Footer />
