@@ -108,8 +108,9 @@ export default class Header extends React.Component {
                                     </ul> */}
                                         <ul className="main-menu">
                                             <li><Link to="/browse-offers">Browse</Link></li>
-                                            <li><Link to="/buyer-dashboard">BuyerDashboard</Link></li>
-                                            <li><Link to="/freelancer-dashboard">FreelancerDashboard</Link></li>
+                                            <li><Link to="/buyer-dashboard">Buyer</Link></li>
+                                            <li><Link to="/freelancer-dashboard">Freelancer</Link></li>
+                                            <li><Link to="/basic-table">Test</Link></li>
                                         </ul>
                                 </div>
 
